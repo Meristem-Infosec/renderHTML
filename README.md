@@ -19,4 +19,4 @@ Create a test file containing the HTML:
 ``
 
 Now use curl to send it
-``curl -H "Referer: api.uuw.app" --json @testfile.json http://render.uuw.app/render``
+``curl -H "Referer: api.uuw.app" -o test.pdf --json @testfile.json http://render.uuw.app/render``
